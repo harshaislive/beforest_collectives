@@ -1,0 +1,17 @@
+{
+  "name": "mumbai-collective-static",
+  "version": "1.0.0",
+  "description": "Static site converted from WordPress for performance testing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["static", "nodejs", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4"
+  }
+}

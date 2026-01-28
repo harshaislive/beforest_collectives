@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(timeout 5 npm start:*)",
+      "Bash(curl -L -o:*)",
+      "Bash(curl:*)",
+      "Bash(curl -L:*)",
+      "Bash(node remove-header-footer.js:*)",
+      "Bash(node:*)"
+    ]
+  }
+}
