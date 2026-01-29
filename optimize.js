@@ -95,8 +95,8 @@ html = html.replace(/<script[^>]*id=['"]wp-polyfill-js['"][^>]*>[\s\S]*?<\/scrip
 // html = html.replace(/<script[^>]*googletagmanager[^>]*>[\s\S]*?<\/script>/g, '');
 // html = html.replace(/<script[^>]*gtag[^>]*>[\s\S]*?<\/script>/g, '');
 
-// Remove Facebook Pixel (keeping GA4)
-html = html.replace(/<!-- Pixel Cat Facebook Pixel Code -->[\s\S]*?<!-- End Facebook Pixel Code -->/g, '');
+// Keep Facebook Pixel (Meta Pixel)
+// html = html.replace(/<!-- Pixel Cat Facebook Pixel Code -->[\s\S]*?<!-- End Facebook Pixel Code -->/g, '');
 
 // Remove admin bar HTML
 html = html.replace(/<div[^>]*id=['"]wpadminbar['"][\s\S]*?<\/div>\s*<\/div>/g, '');
