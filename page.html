@@ -636,8 +636,10 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
             .section-3 .text-overlay {
                 position: relative;
                 z-index: 2;
-                padding: 80px 90px 60px 90px;
+                padding: 80px 40px 60px 40px;
                 width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .section-3 .text-overlay p {
@@ -677,11 +679,13 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
                 font-family: 'ABC Arizona Flare', Arial, sans-serif;
                 font-size: 16px;
                 font-weight: 400;
-                line-height: 1.2;
+                line-height: 1.3;
                 color: #ff774a;
                 text-transform: uppercase;
                 margin: 0;
                 letter-spacing: 0.5px;
+                max-width: 100%;
+                word-wrap: break-word;
             }
 
             .section-3 .cta-button-accordion {
@@ -1282,11 +1286,12 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
                 font-family: 'ABC Arizona Flare', Arial, sans-serif;
                 font-size: 32px;
                 font-weight: 300;
-                line-height: 0.9;
+                line-height: 1;
                 color: #9e3430;
                 text-transform: uppercase;
                 margin: 0;
                 letter-spacing: 0.5px;
+                max-width: 100%;
             }
 
             /* OUR APPROACH subtitle beside title */
@@ -1957,35 +1962,53 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
             }
 
             .section-1 .hero-titles {
-                top: calc(450px * 100vw / 1080);
+                top: calc(350px * 100vw / 1080);
                 left: 50%;
                 transform: translateX(-50%);
-                width: calc(932px * 100vw / 1080);
+                width: 100%;
                 text-align: center;
+                padding: 0 20px;
             }
 
-            .section-1 .title-hammiyala,
+            .section-1 .title-hammiyala {
+                font-size: calc(50px * 100vw / 1080);
+                white-space: normal;
+                line-height: 1.1;
+                margin-bottom: calc(10px * 100vw / 1080);
+                display: block;
+            }
+
             .section-1 .title-collective {
-                font-size: calc(158.39px * 100vw / 1080);
+                font-size: calc(65px * 100vw / 1080);
+                white-space: normal;
+                line-height: 1;
+                display: block;
+            }
+
+            .section-1 .title-the {
+                display: inline;
+                font-size: calc(35px * 100vw / 1080);
             }
 
 
             .section-1 .subtitle-section {
-                top: calc(1375px * 100vw / 1080);
-                width: calc(700px * 100vw / 1080);
+                top: calc(600px * 100vw / 1080);
+                width: 90%;
+                padding: 0 20px;
             }
 
             .section-1 .subtitle-line {
-                font-size: calc(23.49px * 100vw / 1080);
+                font-size: calc(20px * 100vw / 1080);
+                line-height: 1.3;
             }
 
             .section-1 .subtitle-line:nth-child(1),
             .section-1 .subtitle-line:nth-child(2) {
-                margin-bottom: calc(2px * 100vw / 1080);
+                margin-bottom: calc(5px * 100vw / 1080);
             }
 
             .section-1 .cta-section {
-                top: calc(1532px * 100vw / 1080);
+                top: calc(750px * 100vw / 1080);
             }
 
             .section-1 .cta-button {
@@ -1996,7 +2019,7 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
             }
 
             .section-1 .scroll-indicator {
-                top: calc(1726px * 100vw / 1080);
+                top: calc(950px * 100vw / 1080);
             }
 
             .section-1 .scroll-indicator svg {
