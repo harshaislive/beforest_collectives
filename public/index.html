@@ -47,6 +47,63 @@
             -webkit-text-size-adjust: 100%;
             touch-action: manipulation;
         }
+        /* ============================================
+           HEADER LOGO SECTION
+           ============================================ */
+        .header-logo-section {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header-logo {
+            max-width: 280px;
+            width: auto;
+            height: auto;
+        }
+        @media (max-width: 1023px), (orientation: portrait) and (max-width: 1023px) {
+            .header-logo-section {
+                padding: calc(20px * 100vw / 1080) 0;
+            }
+            .header-logo {
+                max-width: calc(280px * 100vw / 1080);
+            }
+        }
+        /* ============================================
+           FOOTER SECTION
+           ============================================ */
+        .footer-section {
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .footer-text {
+            font-family: 'ABC Arizona Flare', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #888888;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        .footer-text a {
+            color: #888888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-text a:hover {
+            color: #ffffff;
+        }
+        @media (max-width: 1023px), (orientation: portrait) and (max-width: 1023px) {
+            .footer-section {
+                padding: calc(30px * 100vw / 1080) calc(20px * 100vw / 1080);
+            }
+            .footer-text {
+                font-size: calc(14px * 100vw / 1080);
+            }
+        }
         /* Global scroll indicator styling */
         .scroll-indicator {
             display: flex;
@@ -3059,7 +3116,13 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
   gtag('js', new Date());
   gtag('config', 'G-1XZY2MQGDN', { 'debug_mode':true });
 </script>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
 <p></p>
+<!-- HEADER LOGO -->
+<div class="header-logo-section">
+<img class="header-logo" src="https://beforest.co/wp-content/uploads/2024/10/23-Beforest-Black-with-Tagline.png#6421" alt="Beforest - Creating Sustainable Permaculture Food Forests and Collective Living Spaces">
+</div>
 <!-- SECTION 1: HERO -->
 <section class="section-1">
 <div class="gradient-overlay"> </div>
@@ -3549,6 +3612,10 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
             startAutoPlay();
         })();
     </script></p>
+<!-- FOOTER -->
+<div class="footer-section">
+<p class="footer-text">© 2026 All Rights Reserved | <a href="https://beforest.co/">beforest.co</a></p>
+</div>
 <!-- Typeform Embed Script -->
 <p><script src="https://embed.typeform.com/next/embed.js"></script>
 </body>
