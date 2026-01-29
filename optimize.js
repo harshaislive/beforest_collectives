@@ -90,11 +90,13 @@ html = html.replace(/<script[^>]*id=['"]wp-hooks-js['"][^>]*>[\s\S]*?<\/script>/
 html = html.replace(/<script[^>]*id=['"]wp-i18n-js['"][^>]*>[\s\S]*?<\/script>/g, '');
 html = html.replace(/<script[^>]*id=['"]wp-polyfill-js['"][^>]*>[\s\S]*?<\/script>/g, '');
 
-// Remove Google Analytics and Facebook Pixel
-html = html.replace(/<!-- Google Analytics[^>]*>[\s\S]*?<!-- End Google Analytics[^>]*-->/g, '');
+// Keep Google Analytics (GA4) - commenting out removals
+// html = html.replace(/<!-- Google Analytics[^>]*>[\s\S]*?<!-- End Google Analytics[^>]*-->/g, '');
+// html = html.replace(/<script[^>]*googletagmanager[^>]*>[\s\S]*?<\/script>/g, '');
+// html = html.replace(/<script[^>]*gtag[^>]*>[\s\S]*?<\/script>/g, '');
+
+// Remove Facebook Pixel (keeping GA4)
 html = html.replace(/<!-- Pixel Cat Facebook Pixel Code -->[\s\S]*?<!-- End Facebook Pixel Code -->/g, '');
-html = html.replace(/<script[^>]*googletagmanager[^>]*>[\s\S]*?<\/script>/g, '');
-html = html.replace(/<script[^>]*gtag[^>]*>[\s\S]*?<\/script>/g, '');
 
 // Remove admin bar HTML
 html = html.replace(/<div[^>]*id=['"]wpadminbar['"][\s\S]*?<\/div>\s*<\/div>/g, '');
