@@ -3,12 +3,12 @@ const fs = require('fs');
 console.log('Wrapping content in proper HTML document structure...');
 let content = fs.readFileSync('public/index.html', 'utf8');
 
-// Remove the trailing </p> if present and any trailing Typeform comment/script
-content = content.replace(/<\/script><\/p>(\s*<!--.*-->|\s*<p>.*<\/p>|\s*)*$/is, '</script>');
+// Keep trailing content intact (including Typeform)
+// content = content.replace(/<\/script><\/p>(\s*<!--.*-->|\s*<p>.*<\/p>|\s*)*$/is, '</script>');
 
-// Remove any trailing Typeform script or comment that might remain
-content = content.replace(/<!-- Typeform Embed Script -->/gi, '');
-content = content.replace(/<p>\s*<script[^>]*embed\.typeform\.com[^>]*>.*?<\/script>\s*<\/p>/gis, '');
+// Keep Typeform script and comment
+// content = content.replace(/<!-- Typeform Embed Script -->/gi, '');
+// content = content.replace(/<p>\s*<script[^>]*embed\.typeform\.com[^>]*>.*?<\/script>\s*<\/p>/gis, '');
 
 // Wrap in proper HTML structure
 const fullHtml = `<!DOCTYPE html>

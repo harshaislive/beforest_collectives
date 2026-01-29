@@ -125,8 +125,8 @@ html = html.replace(/<script[^>]*id=['"]jquery-migrate-js['"][^>]*>[\s\S]*?<\/sc
 // Remove empty lines and excessive whitespace
 html = html.replace(/\n\s*\n/g, '\n');
 
-// Remove Typeform if present
-html = html.replace(/<script[^>]*embed\.typeform\.com[^>]*>[\s\S]*?<\/script>/g, '');
+// Keep Typeform embed script
+// html = html.replace(/<script[^>]*embed\.typeform\.com[^>]*>[\s\S]*?<\/script>/g, '');
 
 console.log('After cleanup size:', (html.length / 1024).toFixed(2), 'KB');
 

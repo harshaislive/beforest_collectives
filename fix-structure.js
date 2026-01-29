@@ -5,8 +5,8 @@ let html = fs.readFileSync('public/index.html', 'utf8');
 
 const originalSize = html.length;
 
-// Remove Typeform embed script completely
-html = html.replace(/<p><script[^>]*embed\.typeform\.com[^>]*><\/script><\/p>/gi, '');
+// Keep Typeform embed script (needed for popup buttons with data-tf-popup)
+// html = html.replace(/<p><script[^>]*embed\.typeform\.com[^>]*><\/script><\/p>/gi, '');
 
 // Extract the style content (remove the <p> wrapper around <style>)
 html = html.replace(/^<p><style>/i, '<style>');
