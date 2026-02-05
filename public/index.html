@@ -3637,6 +3637,85 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
 <div class="footer-section">
 <p class="footer-text">© 2026 All Rights Reserved | <a href="https://beforest.co/">beforest.co</a></p>
 </div>
+<!-- Time Tracking Script for Typeform -->
+<script>
+    // Record page load time
+    var pageLoadTime = Date.now();
+
+    // Get UTM params from current URL
+    function getUrlParams() {
+        var params = new URLSearchParams(window.location.search);
+        var utmParams = {};
+        for (var key of params.keys()) {
+            if (key.startsWith('utm_')) {
+                utmParams[key] = params.get(key);
+            }
+        }
+        return utmParams;
+    }
+
+    // Intercept Typeform button clicks
+    document.addEventListener('DOMContentLoaded', function() {
+        var typeformButtons = document.querySelectorAll('[data-tf-popup]');
+
+        typeformButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Calculate time spent on page (in seconds)
+                var timeSpent = Math.floor((Date.now() - pageLoadTime) / 1000);
+
+                // Get form ID from data attribute
+                var formId = this.getAttribute('data-tf-popup');
+
+                // Get UTM params from URL
+                var utmParams = getUrlParams();
+                utmParams['utm_time_spent'] = timeSpent + 's';
+
+                // Get additional hidden fields from data attribute if present
+                var hiddenData = this.getAttribute('data-tf-hidden');
+                if (hiddenData) {
+                    hiddenData.split(',').forEach(function(pair) {
+                        var parts = pair.split('=');
+                        if (parts.length === 2) {
+                            utmParams[parts[0].trim()] = parts[1].trim();
+                        }
+                    });
+                }
+
+                // Get popup options
+                var opacity = this.getAttribute('data-tf-opacity') || '100';
+                var size = this.getAttribute('data-tf-size') || '100';
+                var medium = this.getAttribute('data-tf-medium') || 'snippet';
+
+                // Open Typeform popup with hidden fields
+                if (window.tf && window.tf.createPopup) {
+                    window.tf.createPopup(formId, {
+                        hidden: utmParams,
+                        opacity: parseInt(opacity),
+                        size: parseInt(size),
+                        medium: medium
+                    }).open();
+                } else {
+                    // Fallback: open without time tracking if SDK not ready
+                    console.warn('Typeform SDK not ready, opening without time tracking');
+                    var backupPopup = window.tf.createPopup(formId, {
+                        opacity: parseInt(opacity),
+                        size: parseInt(size),
+                        medium: medium
+                    });
+                    if (backupPopup && backupPopup.open) {
+                        backupPopup.open();
+                    }
+                }
+
+                return false;
+            });
+        });
+    });
+</script>
+
 <!-- Typeform Embed Script -->
 <p><script src="https://embed.typeform.com/next/embed.js"></script>
 </body>
