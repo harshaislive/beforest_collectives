@@ -6,7 +6,8 @@
       "Bash(curl:*)",
       "Bash(curl -L:*)",
       "Bash(node remove-header-footer.js:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(git push:*)"
     ]
   }
 }

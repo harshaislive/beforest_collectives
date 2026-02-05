@@ -3639,10 +3639,26 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
 </div>
 <!-- Time Tracking Script for Typeform -->
 <script>
-    // Record page load time
-    var pageLoadTime = Date.now();
+    // Accurate time tracking using setInterval and Page Visibility API
+    var timeSpentSeconds = 0;
+    var timerInterval = null;
+    var isPageVisible = true;
 
-    // Get UTM params from current URL
+    // Start timer when page loads - increments every second only when visible
+    function startTimer() {
+        timerInterval = setInterval(function() {
+            if (document.visibilityState === 'visible') {
+                timeSpentSeconds++;
+            }
+        }, 1000);
+    }
+
+    // Track page visibility changes
+    document.addEventListener('visibilitychange', function() {
+        isPageVisible = document.visibilityState === 'visible';
+    });
+
+    // Get UTM parameters from current URL
     function getUrlParams() {
         var params = new URLSearchParams(window.location.search);
         var utmParams = {};
@@ -3654,6 +3670,9 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
         return utmParams;
     }
 
+    // Start timer immediately
+    startTimer();
+
     // Intercept Typeform button clicks
     document.addEventListener('DOMContentLoaded', function() {
         var typeformButtons = document.querySelectorAll('[data-tf-popup]');
@@ -3663,15 +3682,13 @@ src="https://www.facebook.com/tr?id=1038315946895688&ev=PageView&noscript=1"
                 e.preventDefault();
                 e.stopPropagation();
 
-                // Calculate time spent on page (in seconds)
-                var timeSpent = Math.floor((Date.now() - pageLoadTime) / 1000);
-
                 // Get form ID from data attribute
                 var formId = this.getAttribute('data-tf-popup');
 
                 // Get UTM params from URL
                 var utmParams = getUrlParams();
-                utmParams['utm_time_spent'] = timeSpent + 's';
+                // Add accurate time spent (only counts when page is visible)
+                utmParams['utm_time_spent'] = timeSpentSeconds + 's';
 
                 // Get additional hidden fields from data attribute if present
                 var hiddenData = this.getAttribute('data-tf-hidden');
