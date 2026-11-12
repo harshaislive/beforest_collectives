@@ -15,10 +15,10 @@ html = html.replace(/<img(?!\s+[^\u003e]*decoding=)([^\u003e]*)src=/gi, '<img$1d
 const preconnectHints = `
 <meta charset="UTF-8" />
 <!-- Performance optimizations -->
-<link rel="preconnect" href="https://isdbyvwocudnlwzghphw.supabase.co" />
+<link rel="preconnect" href="https://files.ops.beforest.co" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="dns-prefetch" href="https://isdbyvwocudnlwzghphw.supabase.co" />`;
+<link rel="dns-prefetch" href="https://files.ops.beforest.co" />`;
 
 html = html.replace(/<meta\s+charset="UTF-8"\s*\/>/i, preconnectHints);
 
