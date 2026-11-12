@@ -17,8 +17,8 @@ const fullHtml = `<!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Mumbai Collective | Beforest</title>
-<link rel="preconnect" href="https://isdbyvwocudnlwzghphw.supabase.co" />
-<link rel="dns-prefetch" href="https://isdbyvwocudnlwzghphw.supabase.co" />
+<link rel="preconnect" href="https://files.ops.beforest.co" />
+<link rel="dns-prefetch" href="https://files.ops.beforest.co" />
 ${content}
 </body>
 </html>`;
@@ -38,8 +38,8 @@ const finalHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mumbai Collective | Beforest</title>
-<link rel="preconnect" href="https://isdbyvwocudnlwzghphw.supabase.co">
-<link rel="dns-prefetch" href="https://isdbyvwocudnlwzghphw.supabase.co">
+<link rel="preconnect" href="https://files.ops.beforest.co">
+<link rel="dns-prefetch" href="https://files.ops.beforest.co">
 ${styleSection}
 </head>
 <body>
